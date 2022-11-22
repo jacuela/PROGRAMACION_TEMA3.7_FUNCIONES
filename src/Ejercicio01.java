@@ -26,17 +26,12 @@ public class Ejercicio01 {
         System.out.print("Dime un numero: ");
         int num=Integer.parseInt(teclado.nextLine());
         
-        if (esPar(num)){
+        if (esPar(num)){    //(esPar()num==true)
             System.out.println("El numero "+num+" es par.");
         }
         else{
             System.out.println("El numero "+num+" es impar.");
-      
         }
-        
-        
-        
-        
     }
     
     //Aquí van las funciones
@@ -53,10 +48,9 @@ public class Ejercicio01 {
         }
            
         return resultado;
-        
-    }
+    } //fin funcion
     
     
     
     
-}
+} //fin class

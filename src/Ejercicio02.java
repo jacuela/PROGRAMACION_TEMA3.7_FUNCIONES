@@ -25,22 +25,18 @@ public class Ejercicio02 {
         
         System.out.println("Afortunados");
         System.out.println("===========");
-        
-        
         do{
             System.out.print("Dime un numero (INTRO para salir): ");
             cadena=teclado.nextLine();
-            
-            
             //Si la candea NO ESTA VACIA (es decir, NO ES UN INTRO)
             if (!cadena.equals("")){
                num=Integer.parseInt(cadena);     
-               
-               if (esAfortunado(num)) 
+               if (esAfortunado(num)){ 
                     System.out.printf("El numero %d es \033[32m AFORTUNADO \033[30m\n",num);
-               else 
+               }     
+               else{ 
                     System.out.printf("El numero %d es \033[31m NO AFORTUNADO \033[30m\n",num);
-           
+               }         
                System.out.println("");
             }
             //La cadena ES VACIA (es decir, le me metido un INTRO)
@@ -56,6 +52,12 @@ public class Ejercicio02 {
     
     
     //Funcion
+    /**
+     * 
+     * 
+     * @param num 
+     * @return 
+     */
     public static boolean esAfortunado(int num){
         int afortunados=0;
         int noAfortunados=0;
@@ -67,9 +69,8 @@ public class Ejercicio02 {
                 afortunados++;
             } else {
                 noAfortunados++;
-
             }
-            num /= 10;
+            num /= 10;  //num=num/10
         }
 
         if (afortunados > noAfortunados) {
@@ -78,7 +79,6 @@ public class Ejercicio02 {
         } else {
             //System.out.println("no es afortunado");
             return false;
-
         }
     }//fin funcion
     
