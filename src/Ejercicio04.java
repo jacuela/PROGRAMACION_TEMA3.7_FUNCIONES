@@ -11,31 +11,25 @@ import java.util.Scanner;
  *
  * @author juan.antonio
  */
-public class Ejercicio03bis {
+public class Ejercicio04 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    Scanner teclado=new Scanner(System.in);
+        Scanner teclado=new Scanner(System.in);
         
-        System.out.println("Ejercicio 3 - Analizar fecha");
-        System.out.println("============================");
-        System.out.print("Dime el dia: ");
-        int dia=Integer.parseInt(teclado.nextLine());
-        System.out.print("Dime el mes: ");
-        int mes=Integer.parseInt(teclado.nextLine());
-        System.out.print("Dime el año: ");
-        int year=Integer.parseInt(teclado.nextLine());
+        System.out.println("Introduce una fecha (dd/mm/aaaa): ");
+        String fecha=teclado.nextLine();
+        int dia=getDia(fecha);
+        int mes=getMes(fecha);
+        int year=getYear(fecha);
         
-        int resultado=fechaCorrecta(dia,mes,year);
-        
-        switch(resultado){
+        switch(fechaCorrecta(dia,mes,year)){
             case 0:   
-                System.out.printf("La fecha %d/%d/%d es \033[32mCORRECTA\n",dia,mes,year);
+                System.out.println("Fecha introducida: "+imprimirFechaExt(dia,mes,year));
                 break;
-                
             case 1:
                 System.out.printf("La fecha %d/%d/%d es \033[31mINCORRECTA (día incorrecto)\n",dia,mes,year);
                 break;
@@ -46,23 +40,26 @@ public class Ejercicio03bis {
                 System.out.printf("La fecha %d/%d/%d es \033[31mINCORRECTA (año incorrecto)\n",dia,mes,year);
                 break;
         }
-            
-                
-                
-                
-        
-        
-        if (fechaCorrecta(dia,mes,year)==0){
-          
-        }
-        else{
-            
-         
-        }    
-        
         
     }
     
+    public static String imprimirFechaExt(int d, int m, int y){
+        String fechaExtendida="";
+        
+        String []nombreMes={
+            "","enero","febrero","marzo","abril","mayo","junio",
+            "julio","agosto","septiembre","octubre","noviembre","diciembre"
+        };
+        
+        fechaExtendida=d+" de "+nombreMes[m]+" del "+y;
+        
+        //OPCION:Usando String.format para formar la cadena
+        fechaExtendida=String.format("%d de %s del %d",d,nombreMes[m],y);
+        
+        
+        return fechaExtendida;
+        
+    }
     
     public static int fechaCorrecta(int dia, int mes, int year){
         boolean yearCorrecto=false;
@@ -151,5 +148,20 @@ public class Ejercicio03bis {
         
     }//fin funcion fechaCorrecta()
     
+    public static int getDia(String fecha){
+        String[]campos=fecha.split("/");
+        String dia=campos[0];
+        return Integer.parseInt(dia);
+    }
+    public static int getMes(String fecha){
+        String[]campos=fecha.split("/");
+        String mes=campos[1];
+        return Integer.parseInt(mes);
+    }
+    public static int getYear(String fecha){
+        String[]campos=fecha.split("/");
+        String year=campos[2];
+        return Integer.parseInt(year);
+    }
     
 }
