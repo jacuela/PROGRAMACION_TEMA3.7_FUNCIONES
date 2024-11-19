@@ -16,12 +16,9 @@ public class Ejercicio06_color_cadenas {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        imprimirCadenaColor("hola","rojo",true);
-        imprimirCadenaColor("hola","verde",true);
-        imprimirCadenaColor("hola","azul",false);
-        imprimirCadenaColor("hola","amarillo",true);
         
-        System.out.println("------------------------------");
+        
+        System.out.println(Math.pow(2,4));
         
         System.out.println(devolverCadenaColor("adios","rojo"));
         System.out.println(devolverCadenaColor("adios","verde"));
@@ -29,6 +26,22 @@ public class Ejercicio06_color_cadenas {
         System.out.println(devolverCadenaColor("adios","amarillo"));
         
         System.out.println(devolverCadenaColor("otroa","amalillo"));
+        
+        System.out.println(devolverCadenaColor("Color por defecto",null));
+        
+        System.out.println("------------------------------");
+        
+        
+        imprimirCadenaColor("hola","rojo",true);
+        imprimirCadenaColor("hola","verde",true);
+        imprimirCadenaColor("hola","azul",false);
+        imprimirCadenaColor("hola","amarillo",true);
+        
+        
+        
+        
+       
+        
         
         
     }
@@ -42,22 +55,28 @@ public class Ejercicio06_color_cadenas {
         
         String cadena="ERROR. Color no encontrado";
         
-        switch(color){
-            case "negro": cadena=String.format("\033[30m%s\033[30m",texto);
-                          break;
-            
-                          //0tra opcion de crear una cadena
-            case "rojo":  cadena="\033[31m"+texto+"\033[30m"; 
-                          break;                                       
-            
-            case "verde": cadena=String.format("\033[32m%s\033[30m",texto);
-                          break;
-            
-            case "amarillo": cadena=String.format("\033[33m%s\033[30m",texto);
-                          break;
-            
-            case "azul": cadena=String.format("\033[34m%s\033[30m",texto);
-                          break;
+        if (color==null){
+            //La imprimo por defecto
+            cadena=String.format("%s",texto);
+        }else{
+            switch(color){
+                case "negro": cadena=String.format("\033[30m%s\033[30m",texto);
+                              break;
+
+                              //0tra opcion de crear una cadena
+                case "rojo":  cadena="\033[31m"+texto+"\033[30m"; 
+                              break;                                       
+
+                case "verde": cadena=String.format("\033[32m%s\033[30m",texto);
+                              break;
+
+                case "amarillo": cadena=String.format("\033[33m%s\033[30m",texto);
+                              break;
+
+                case "azul": cadena=String.format("\033[34m%s\033[30m",texto);
+                              break;
+            }
+        
         }
         
         return cadena;
