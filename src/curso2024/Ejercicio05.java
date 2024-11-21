@@ -50,7 +50,8 @@ public class Ejercicio05 {
     public static int aleatorio(int min, int max){
         //Algoritmo. Ambos extremos tienen que ser >=0
         int num;
-       
+
+        
         //Primero, trato errores
         if (min<0 || max<0){
             return -1;
@@ -60,7 +61,7 @@ public class Ejercicio05 {
             return -1;
         }
         
-        num=(int)(Math.random()*(max-min+1)+min); //max y min incluidos 
+        num=(int)(Math.random()*(max-min+1))+min; //max y min incluidos 
         
         return num;
         
