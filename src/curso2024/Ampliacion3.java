@@ -20,13 +20,20 @@ public class Ampliacion3 {
         Scanner teclado=new Scanner(System.in);
         int[] mis_numeros=new int[6];
         int [] lista_bonoloto;
+        int num;
         
         System.out.println("BONOLOTO");
         System.out.println("================");
         
         for (int i = 0; i < 6; i++) {
-            System.out.print("Dime tu numero "+(i+1)+": ");
-            mis_numeros[i]=Integer.parseInt(teclado.nextLine());
+            
+            do{ //Para comprobar que escojo un num estre 1 y 49
+                System.out.print("Dime tu numero "+(i+1)+": ");
+                num = Integer.parseInt(teclado.nextLine());
+                if (num<1 || num>49) System.out.println("    ERROR, entre 1 y 49");
+            }while(num<1 || num>49);
+            
+            mis_numeros[i]=num;
         }
 
         System.out.println("");
