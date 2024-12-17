@@ -60,22 +60,52 @@ public class Ejercicio2_competicion_atletismo {
             System.out.println("");
         }
         
-        //Obtener el mayor lanzamienti
+        //Obtener el mayor, menor, media lanzamienti
         double mayor=lanzamientos[0][0];
-        int atletaMayor=-1;
+        double menor=lanzamientos[0][0];
+        double sumaLanzamientos=0;
+        
+        
+        int atletaMayor=1;
+        int atletaMenor=1;
+        double lanzamientoPromedio=-1;
+        
+        
         
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+                
+                //Calculo del mejor lanzamiento
                 if (lanzamientos[i][j]>mayor){
                     mayor=lanzamientos[i][j];
                     atletaMayor = i+1;
                 }
                 
+                //Calculo del peor lanzamiento
+                if (lanzamientos[i][j]< menor){
+                    menor=lanzamientos[i][j];
+                    atletaMenor = i+1;
+                }
+                
+                //Sumo todos los lanzamientos
+                sumaLanzamientos = sumaLanzamientos + lanzamientos[i][j];
+                
             }
         }
-        
+        //Calculo la media
+        lanzamientoPromedio = sumaLanzamientos / (n*m);
+        System.out.println("");
         System.out.println("El mayor lanzamiento es de "+mayor);
         System.out.println("Obtenido por el atleta "+atletaMayor);
+        System.out.println("");
+        System.out.println("El menor lanzamiento es de "+menor);
+        System.out.println("Obtenido por el atleta "+atletaMenor);
+        System.out.println("");
+        System.out.println("La media de lanzamientos es: "+lanzamientoPromedio);
+        
+        
+        
+        
         
         
         
